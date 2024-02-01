@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  font-size: 24px;
+  color: #61dafb;
+  margin-bottom: 20px;
+}
+
+select,
+input {
+  width: 100%;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
