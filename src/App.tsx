@@ -57,10 +57,31 @@ const App = () => {
     // Add other style customizations as needed
   };
 
+  // Warning message for users
+  const warningMessage = (
+    <div className="warning-message">
+      <p>
+        <strong>Important:</strong> This app is designed to help you quickly
+        check if a food item your pet has consumed is toxic to them.
+      </p>
+      <p>
+        While some these foods are generally considered safe in moderation,
+        always be cautious and consult with your veterinarian if you have
+        concerns. In case of an emergency, call the ASPCA Animal Poison Control
+        Center at <a href="tel:1-888-426-4435">1-888-426-4435</a> any time, day
+        or night, including weekends and holidays.
+      </p>
+    </div>
+  );
+
+  // Determine the text color based on the presence of the word "toxic" in the result
+  const textColor = result.toLowerCase().includes("toxic") ? "red" : "white";
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Dog Food Safety Checker</h1>
+        {warningMessage}
         <div>
           <Select
             value={selectedOption}
@@ -70,7 +91,7 @@ const App = () => {
             styles={customStyles}
           />
         </div>
-        {result && <p>{result}</p>}
+        <p style={{ color: textColor }}>{result}</p>
       </header>
     </div>
   );
